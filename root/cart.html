@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rosella Beauty — السلة</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="rb-header">
+    <div class="rb-container rb-header-inner">
+      <div class="brand">Rosella Beauty</div>
+      <nav class="rb-nav"><a href="index.html">الرئيسية</a><a href="products.html">المنتجات</a></nav>
+    </div>
+  </header>
+
+  <main class="rb-container" style="padding-top:26px">
+    <h2 style="text-align:center">سلة المشتريات</h2>
+    <div id="cart-items" style="margin-top:18px"></div>
+
+    <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div class="cart-summary">المجموع: <strong id="cart-total">0.00</strong> د.ت</div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-gold" onclick="clearCart()">تفريغ السلة</button>
+        <button class="btn" onclick="checkoutFlow()">تأكيد وارسال عبر واتساب</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rb-footer">
+    <div class="rb-container">Rosella Beauty © 2025 — 📧 rosellabeauty6@gmail.com — 📞 +216 27 869 248</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script> document.addEventListener('DOMContentLoaded', ()=>{ renderCart(); document.getElementById('cart-total').innerText = parseFloat(cartTotal()).toFixed(2); document.querySelectorAll('.cart-count').forEach(x=> x.innerText = cartCount()); }); </script>
+</body>
+</html>
 
