@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rosella Beauty — المنتجات</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="rb-header">
+    <div class="rb-container rb-header-inner">
+      <div class="brand">Rosella Beauty</div>
+      <nav class="rb-nav"><a href="index.html">الرئيسية</a><a href="products.html">المنتجات</a><a href="cart.html">السلة (<span class="cart-count">0</span>)</a></nav>
+    </div>
+  </header>
+
+  <main class="rb-container" style="padding-top:26px">
+    <h2 class="section-title">منتجاتنا</h2>
+    <div id="product-list" class="grid"></div>
+  </main>
+
+  <footer class="rb-footer">
+    <div class="rb-container">Rosella Beauty © 2025 — 📧 rosellabeauty6@gmail.com — 📞 +216 27 869 248</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script> document.addEventListener('DOMContentLoaded', ()=>{ renderProductsGrid('product-list'); document.querySelectorAll('.cart-count').forEach(x=> x.innerText = JSON.parse(localStorage.getItem('rosella_cart_v3')||'[]').reduce((s,i)=>s+i.qty,0)); }); </script>
+</body>
+</html>
 
