@@ -1,5 +1,83 @@
-/* Rosella Beauty Main Style */
-body {
-    background: #fff;
+/* assets/css/style.css
+   Rosella Beauty - Dark & Gold theme
+*/
+:root{
+  --bg:#0d0d0d;
+  --panel:#0f0f0f;
+  --muted:#bdb5a8;
+  --text:#f6f4f1;
+  --gold:#d4af37;
+  --accent:#111;
+  --radius:12px;
+  --container:1100px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,#0b0b0b 0%, #0f0f10 100%);
+  color:var(--text);
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
 }
 
+/* Header */
+.rb-header{background:linear-gradient(90deg,#070707 0%, #111 100%);position:sticky;top:0;z-index:90;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+.rb-header .rb-header-inner{max-width:var(--container);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:20px;color:var(--gold);letter-spacing:1px}
+.rb-nav a{color:rgba(255,255,255,0.85);margin-left:18px;text-decoration:none;font-weight:600}
+.rb-nav a:hover{color:var(--gold)}
+
+/* container & sections */
+.rb-container{max-width:var(--container);margin:0 auto;padding:28px 18px}
+.section-title{font-size:26px;font-weight:800;color:var(--gold);margin-bottom:14px}
+
+/* HERO / slider */
+.hero-wrap{width:100%;overflow:hidden}
+.slider{display:flex;transition:transform .6s ease;height:520px;min-height:320px}
+.slide{min-width:100%;position:relative}
+.slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.56) contrast(1.02)}
+.caption{position:absolute;left:6%;top:50%;transform:translateY(-50%);text-align:right;color:var(--text);max-width:44%}
+.caption h1{font-size:48px;margin:0 0 8px 0;line-height:1.02}
+.caption p{margin:0 0 18px 0;color:var(--muted);font-size:18px}
+.cta{display:inline-block;padding:12px 18px;background:var(--gold);color:#000;border-radius:10px;font-weight:700;text-decoration:none}
+
+/* grid products */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;box-shadow:var(--shadow);text-align:right;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.card img{width:100%;height:240px;object-fit:cover;border-radius:10px}
+.card h3{margin:10px 0 6px 0;font-size:18px}
+.card p{color:var(--muted);font-size:14px;margin:0}
+.price{font-weight:800;margin-top:8px;color:var(--gold)}
+
+/* buttons */
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#111;color:var(--text);border:0;cursor:pointer;font-weight:700}
+.btn-gold{background:var(--gold);color:#0b0b0b;font-weight:800;border-radius:10px;padding:10px 14px}
+
+/* product detail */
+.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media(max-width:900px){ .product-detail{grid-template-columns:1fr;}.caption{max-width:80%}.slide{height:360px}.slider{height:360px}}
+
+/* cart */
+.cart-item{display:flex;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));align-items:center;box-shadow:var(--shadow)}
+.cart-item img{width:96px;height:96px;object-fit:cover;border-radius:8px}
+.cart-summary{background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.5));padding:14px;border-radius:12px;box-shadow:var(--shadow);color:var(--text)}
+
+/* inputs */
+.input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:var(--text);margin-top:6px}
+
+/* footer */
+.rb-footer{background:linear-gradient(90deg,#0b0b0b 0%, #0f0f0f 100%);color:var(--muted);padding:24px 18px;margin-top:28px;text-align:center;font-size:14px}
+
+/* small */
+.small{font-size:13px;color:var(--muted)}
+
+/* responsive */
+@media(max-width:520px){
+  .caption h1{font-size:28px}
+  .caption p{font-size:14px}
+  .slide{height:300px}
+  .card img{height:180px}
+}
