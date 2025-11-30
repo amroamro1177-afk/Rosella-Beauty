@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Store Tunisia</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; }
+    header { background:#d46abf; color:white; padding:20px; text-align:center; font-size:28px; font-weight:bold; }
+
+    nav { background:white; padding:10px; display:flex; justify-content:center; gap:25px; font-size:18px; border-bottom:1px solid #ccc; }
+    nav a { text-decoration:none; color:#333; font-weight:bold; }
+    nav a:hover { color:#d46abf; }
+
+    .hero { background:#ffe3f8; padding:60px; text-align:center; font-size:30px; font-weight:bold; }
+
+    .section { padding:40px; }
+    .title { font-size:26px; font-weight:bold; margin-bottom:20px; }
+
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .card { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    .card img { width:100%; border-radius:10px; }
+    .card button { width:100%; padding:10px; background:#d46abf; border:none; color:white; font-size:16px; border-radius:8px; }
+
+    /* About */
+    .about-box { background:white; padding:20px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+
+    /* Order tracking */
+    .track-box { background:white; padding:20px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1); max-width:500px; margin:auto; }
+    #track-result { margin-top:15px; font-size:20px; font-weight:bold; }
+
+    footer { background:#333; color:white; text-align:center; padding:20px; margin-top:40px; }
+  </style>
+</head>
+<body>
+
+<header>Rosella Beauty – Tunisia</header>
+
+<nav>
+  <a href="#hero">Accueil</a>
+  <a href="#products">Produits</a>
+  <a href="#about">À propos</a>
+  <a href="#track">Suivi Commande</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="hero">Bienvenue à Rosella Beauty ✨</div>
+
+<!-- PRODUCTS -->
+<div class="section" id="products">
+  <div class="title">Nos Produits</div>
+  <div class="products" id="product-list"></div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="title">À propos de nous</div>
+  <div class="about-box">
+    Rosella Beauty est une boutique tunisienne spécialisée dans les produits de beauté,
+    accessoires et tendances féminines. Nous offrons un service rapide, fiable avec livraison
+    dans toute la Tunisie.
+  </div>
+</div>
+
+<!-- ORDER TRACKING -->
+<div class="section" id="track">
+  <div class="title">Suivi de commande</div>
+  <div class="track-box">
+    <label>Entrer votre numéro de commande :</label>
+    <input id="order-id" style="width:100%; padding:10px; margin:10px 0;">
+    <button onclick="trackOrder()" style="width:100%; padding:10px; background:#d46abf; border:none; color:white;">Suivre</button>
+    <div id="track-result"></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="title">Contact</div>
+  <div class="about-box">
+    Email : rosellabeauty6@gmail.com <br>
+    Téléphone : +21627869248 <br>
+    Adresse : Tunisia
+  </div>
+</div>
+
+<footer>© 2025 Rosella Beauty – Tous droits réservés</footer>
+
+<script>
+// PRODUCT SYSTEM
+let products = [
+  { id:1, name:"Collier Double Cœurs", price:19.9, img:"product1.jpg" },
+  { id:2, name:"Bracelet Doré", price:14.9, img:"product2.jpg" },
+  { id:3, name:"Boucles d’oreilles Perles", price:12.9, img:"product3.jpg" }
+];
+
+function loadProducts(){
+  let list = document.getElementById("product-list");
+  list.innerHTML = "";
+  products.forEach(p =>{
+    list.innerHTML += `
+      <div class='card'>
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p><b>${p.price} DT</b></p>
+        <button onclick="order(${p.id})">Commander</button>
+      </div>
+    `;
+  });
+}
+loadProducts();
+
+// WHATSAPP ORDER
+function order(id){
+  let p = products.find(x => x.id === id);
+  let msg = `Salem, je veux commander : ${p.name} (${p.price} DT)`;
+  window.open(`https://wa.me/21627869248?text=${encodeURIComponent(msg)}`);
+}
+
+// ORDER TRACKING
+function trackOrder(){
+  let id = document.getElementById("order-id").value;
+  let result = document.getElementById("track-result");
+
+  if(id.trim()===""){ result.innerHTML="Veuillez entrer un numéro."; return; }
+
+  const states = ["En attente", "Préparation", "Expédiée", "Livrée"];
+  let randomState = states[Math.floor(Math.random()*states.length)];
+
+  result.innerHTML = `Statut : <span style='color:#d46abf'>${randomState}</span>`;
+}
+</script>
+
+</body>
+</html>
