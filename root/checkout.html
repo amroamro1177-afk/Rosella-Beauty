@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rosella Beauty — تأكيد الطلب</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="rb-header">
+    <div class="rb-container rb-header-inner">
+      <div class="brand">Rosella Beauty</div>
+      <nav class="rb-nav"><a href="index.html">الرئيسية</a><a href="cart.html">السلة</a></nav>
+    </div>
+  </header>
+
+  <main class="rb-container" style="padding-top:26px">
+    <h2 style="text-align:center">تأكيد الطلب</h2>
+
+    <div style="max-width:700px;margin:18px auto;background:#0f0f0f;padding:22px;border-radius:12px;color:#fff;box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+      <label>الاسم الكامل</label>
+      <input id="co-name" class="input" placeholder="الاسم الكامل">
+      <label style="margin-top:8px">رقم الهاتف</label>
+      <input id="co-phone" class="input" placeholder="+216 ...">
+      <label style="margin-top:8px">العنوان</label>
+      <input id="co-address" class="input" placeholder="الولاية / المدينة">
+      <div style="margin-top:12px;text-align:center">
+        <button class="btn btn-gold" onclick="checkoutFlow()">تأكيد وارسال عبر واتساب</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rb-footer">
+    <div class="rb-container">Rosella Beauty © 2025 — 📧 rosellabeauty6@gmail.com — 📞 +216 27 869 248</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script> document.addEventListener('DOMContentLoaded', ()=>{ document.querySelectorAll('.cart-count').forEach(x=> x.innerText = cartCount()); }); </script>
+</body>
+</html>
 
