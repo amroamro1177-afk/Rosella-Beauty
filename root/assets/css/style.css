@@ -138,6 +138,12 @@ body{
     border-radius: 25px;
     transition: 0.3s ease;
 }
+@media (max-width: 768px) {
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .cta-btn:hover {
     background: #b0276a;
